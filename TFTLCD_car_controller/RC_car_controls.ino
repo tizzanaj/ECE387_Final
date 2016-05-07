@@ -103,7 +103,7 @@ void setup(void) {
   tft.drawRect(90, 130, BOXSIZE, BOXSIZE, WHITE);//Left Direction
   tft.setCursor(110, 5);
   tft.setTextSize(2);
-  tft.println("Controls");
+  tft.println("RC Car Controls");
   pinMode(13, OUTPUT);
   pinMode(FORWARD, OUTPUT);
   pinMode(REVERSE, OUTPUT);
@@ -114,8 +114,8 @@ void setup(void) {
 void loop()
 {
   digitalWrite(13, HIGH);
-  TSPoint p = ts.getPoint();
-  digitalWrite(13, LOW);
+  TSPoint p = ts.getPoint();//Acquires TouchScreen Coordinates
+  digitalWrite(13, LOW);//Reason for Jittery right Turn as the the digital 13 is used to capture the touch
 
   //if sharing pins, you'll need to fix the directions of the touchscreen pins
   //pinMode(XP, OUTPUT);
